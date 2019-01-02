@@ -1,6 +1,6 @@
 name: cordova_googleplus_plugin
 description: Dart wrapper for cordova plugin, cordova-plugin-googleplus (use for google sign on android and ios) https://github.com/EddyVerbruggen/cordova-plugin-googleplus
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/moczix/dart_cordova_googleplus_plugin
 author: Moczniak <czornypan@gmail.com>
 

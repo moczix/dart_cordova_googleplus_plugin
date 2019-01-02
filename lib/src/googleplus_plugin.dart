@@ -21,15 +21,18 @@ class GoogleplusPayload {
 class GoogleplusPlugin {
   GoogleplusOptions _options;
 
-  GoogleplusPlugin({String webClientId = '', String scopes = '', bool offline = false}) {
-    this._options = GoogleplusOptions(webClientId: webClientId, scopes: scopes, offline: offline);
+  GoogleplusPlugin(
+      {String webClientId = '', String scopes = '', bool offline = false}) {
+    this._options = GoogleplusOptions(
+        webClientId: webClientId, scopes: scopes, offline: offline);
   }
 
   Future<GoogleplusPayload> login() {
     Completer<GoogleplusPayload> completer = Completer();
     GooglePlusApi.login(
         _options,
-        allowInterop((dynamic result) => completer.complete(_parseJsPayload(result))),
+        allowInterop(
+            (dynamic result) => completer.complete(_parseJsPayload(result))),
         allowInterop((int codeError) => completer.completeError(codeError)));
     return completer.future;
   }
@@ -38,20 +41,23 @@ class GoogleplusPlugin {
     Completer<GoogleplusPayload> completer = Completer();
     GooglePlusApi.trySilentLogin(
         _options,
-        allowInterop((dynamic result) => completer.complete(_parseJsPayload(result))),
+        allowInterop(
+            (dynamic result) => completer.complete(_parseJsPayload(result))),
         allowInterop((int codeError) => completer.completeError(codeError)));
     return completer.future;
   }
 
   Future<String> logout() {
     Completer<String> completer = Completer();
-    GooglePlusApi.logout(allowInterop((String result) => completer.complete(result)));
+    GooglePlusApi.logout(
+        allowInterop((String result) => completer.complete(result)));
     return completer.future;
   }
 
   Future<String> disconnect() {
     Completer<String> completer = Completer();
-    GooglePlusApi.disconnect(allowInterop((String result) => completer.complete(result)));
+    GooglePlusApi.disconnect(
+        allowInterop((String result) => completer.complete(result)));
     return completer.future;
   }
 
